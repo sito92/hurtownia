@@ -16,6 +16,8 @@ namespace Hurtownia.Models
         public PaymentType PaymentType { get; set; }
 
         public Employee Employee { get; set; }
+
+        public ProductList ProductList { get; set; }
     }
 
     public class OrderDbContext : DbContext
