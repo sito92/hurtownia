@@ -8,7 +8,13 @@ namespace Hurtownia.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            var testConnection = new WholeSaleDbContext();
+            using (WholeSaleDbContext context = new WholeSaleDbContext())
+            {
+                context.PaymentTypes.Add(new PaymentType() {Type = "Karta"});
+                context.SaveChanges();
+            }
+
+
             return View();
         }
 
