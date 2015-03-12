@@ -203,6 +203,7 @@
     <Compile Include="Models\ProductList.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\WholeSaleDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +320,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

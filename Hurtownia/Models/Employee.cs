@@ -35,9 +35,4 @@ namespace Hurtownia.Models
         [Display(Name = "Adres e-mail")]
         public string EMail { get; set; }
     }
-
-    public class EmployeeDbContext : DbContext
-    {
-        public DbSet<Employee> Employees { get; set; }
-    }
 }

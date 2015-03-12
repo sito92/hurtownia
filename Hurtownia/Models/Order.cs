@@ -19,9 +19,4 @@ namespace Hurtownia.Models
 
         public ProductList ProductList { get; set; }
     }
-
-    public class OrderDbContext : DbContext
-    {
-        public DbSet<Order> Orders { get; set; }
-    }
 }

@@ -12,12 +12,7 @@ namespace Hurtownia.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Imie")]
+        [Display(Name = "Typ produktu")]
         public string Name { get; set; }
-    }
-
-    public class ProductTypeDbContext : DbContext
-    {
-        public DbSet<ProductType> ProductTypes { get; set; }
     }
 }

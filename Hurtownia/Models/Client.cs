@@ -41,9 +41,4 @@ namespace Hurtownia.Models
         [Display(Name = "Typ klienta")]
         public string ClientType { get; set; }
     }
-
-    public class ClientDbContext : DbContext
-    {
-        public DbSet<Client> Clients { get; set; }
-    }
 }

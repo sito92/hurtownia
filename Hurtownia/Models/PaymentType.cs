@@ -15,9 +15,4 @@ namespace Hurtownia.Models
         [Display(Name = "Typ płatności")]
         public string Type { get; set; }
     }
-
-    public class PaymentTypeDbContext : DbContext
-    {
-        public DbSet<PaymentType> PaymentTypes { get; set; }
-    }
 }

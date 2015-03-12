@@ -20,9 +20,4 @@ namespace Hurtownia.Models
         [Display(Name = "Minimalna wartość")]
         public int MinimalAmount { get; set; }
     }
-
-    public class UnitDbContext : DbContext
-    {
-        public DbSet<Unit> Units { get; set; }
-    }
 }

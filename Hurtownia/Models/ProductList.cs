@@ -17,9 +17,4 @@ namespace Hurtownia.Models
         [Display(Name = "Ilość")]
         public int Amount { get; set; }
     }
-
-    public class ProductListDbContext : DbContext
-    {
-        public DbSet<ProductList> ProductLists { get; set; } 
-    }
 }

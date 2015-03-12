@@ -26,9 +26,4 @@ namespace Hurtownia.Models
         [Display(Name = "Numer mieszkania")]
         public int FlatNumber { get; set; }  
     }
-
-    public class AddressDbContext : DbContext
-    {
-        public DbSet<Address> Addresses { get; set; }
-    }
 }

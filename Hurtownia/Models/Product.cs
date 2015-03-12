@@ -12,7 +12,7 @@ namespace Hurtownia.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Imie")]
+        [Display(Name = "Nazwa produktu")]
         public string Name { get; set; }
 
         [Required]
@@ -30,10 +30,5 @@ namespace Hurtownia.Models
         [Required]
         [Display(Name = "Cena")]
         public float Price { get; set; }
-    }
-
-    public class ProductDbContext : DbContext
-    {
-        public DbSet<Product> Products { get; set; }
     }
 }
