@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Hurtownia.Models
 {
@@ -13,6 +8,9 @@ namespace Hurtownia.Models
 
         [Display(Name = "Produkt")]
         public Product Product { get; set; }
+
+        [Display(Name = "Zamówienie")]
+        public Order Order { get; set; }
 
         [Display(Name = "Ilość")]
         public int Amount { get; set; }
