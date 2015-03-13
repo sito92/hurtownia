@@ -26,6 +26,11 @@ namespace Hurtownia.Repository
             return _dbContext.PaymentTypes.FirstOrDefault(paymentType => paymentType.Type == paymentTypeName);
         }
 
+        public IQueryable<PaymentType> FindBy(Func<PaymentType, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(PaymentType element)
         {
             _dbContext.PaymentTypes.Add(element);

@@ -1,9 +1,12 @@
-﻿namespace Hurtownia.Interfaces
+﻿using System;
+using System.Linq;
+
+namespace Hurtownia.Interfaces
 {
     public interface IRepository<T>
     {
-        T GetById(int id);
-
+        IQueryable<T> FindBy(Func<T, bool> predicate);
+ 
         void Add(T element);
 
         void Delete(T element);

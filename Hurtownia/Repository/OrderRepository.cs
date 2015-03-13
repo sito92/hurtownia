@@ -21,6 +21,11 @@ namespace Hurtownia.Repository
             return _dbContext.Orders.Find(id);
         }
 
+        public IQueryable<Order> FindBy(Func<Order, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(Order element)
         {
             _dbContext.Orders.Add(element);

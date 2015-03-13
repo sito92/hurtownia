@@ -21,6 +21,11 @@ namespace Hurtownia.Repository
             return _dbContext.Employees.Find(id);
         }
 
+        public IQueryable<Employee> FindBy(Func<Employee, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(Employee element)
         {
             _dbContext.Employees.Add(element);

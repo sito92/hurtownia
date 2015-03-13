@@ -9,6 +9,6 @@ namespace Hurtownia.Interfaces
     public interface IUnitRepository : IRepository<Unit>
     {
         //Pobranie jednostki po nazwie
-        Unit GetUnitByName(string name);
+        IQueryable<Unit> GetUnitByName(string name);
     }
 }
