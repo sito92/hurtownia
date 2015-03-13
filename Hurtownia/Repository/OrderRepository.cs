@@ -7,53 +7,21 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Repository
 {
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository : GenericRepository<Order,WholeSaleDbContext>,IOrderRepository
     {
-        private WholeSaleDbContext _dbContext;
-
-        public OrderRepository()
-        {
-            _dbContext = new WholeSaleDbContext();
-        }
-
-        public Order GetById(int id)
-        {
-            return _dbContext.Orders.Find(id);
-        }
-
-        public IQueryable<Order> FindBy(Func<Order, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(Order element)
-        {
-            _dbContext.Orders.Add(element);
-        }
-
-        public void Delete(Order element)
-        {
-            _dbContext.Orders.Remove(element);
-        }
-
-        public void SaveChanges()
-        {
-            _dbContext.SaveChanges();
-        }
-
         public IQueryable<Order> GerOrderByClient(Client client)
         {
-            return _dbContext.Orders.Where(order => order.Client == client);
+            return FindBy(o => o.Client == client);
         }
 
         public IQueryable<Order> GetOrderByPaymentType(PaymentType paymentType)
         {
-            return _dbContext.Orders.Where(order => order.PaymentType == paymentType);
+            return FindBy(o => o.PaymentType == paymentType);
         }
 
         public IQueryable<Order> GetOrderByEmployee(Employee employee)
         {
-            return _dbContext.Orders.Where(order => order.Employee == employee);
+            return FindBy(o => o.Employee == employee);
         }
     }
 }

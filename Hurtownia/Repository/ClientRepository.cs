@@ -7,43 +7,11 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Repository
 {
-    public class ClientRepository : IClientRepository
+    public class ClientRepository : GenericRepository<Client,WholeSaleDbContext>,IClientRepository
     {
-        private WholeSaleDbContext _dbContext;
-
-        public ClientRepository()
-        {
-            _dbContext = new WholeSaleDbContext();
-        }
-
-        public Client GetById(int id)
-        {
-            return _dbContext.Clients.Find(id);
-        }
-
-        public IQueryable<Client> FindBy(Func<Client, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(Client element)
-        {
-            _dbContext.Clients.Add(element);
-        }
-
-        public void Delete(Client element)
-        {
-            _dbContext.Clients.Remove(element);
-        }
-
-        public void SaveChanges()
-        {
-            _dbContext.SaveChanges();
-        }
-
         public IQueryable<Client> GetClientBySurname(string surname)
         {
-            return _dbContext.Clients.Where(client => client.Surname == surname);
+            return FindBy(c => c.Surname == surname);
         }
     }
 }

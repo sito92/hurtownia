@@ -9,9 +9,9 @@ namespace Hurtownia.Repository
 {
     public class UnitRepository : GenericRepository<Unit,WholeSaleDbContext>,IUnitRepository
     {
-        public IQueryable<Unit> GetUnitByName(string name)
+        public Unit GetUnitByName(string name)
         {
-            return FindBy(u => u.Name == name);
+            return FindBy(u => u.Name == name).FirstOrDefault();
         }
     }
 }

@@ -6,7 +6,7 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Interfaces
 {
-    public interface IClientRepository : IRepository<Client>
+    public interface IClientRepository
     {
         //Pobranie klienta po imieniu
         IQueryable<Client> GetClientBySurname(string surname);

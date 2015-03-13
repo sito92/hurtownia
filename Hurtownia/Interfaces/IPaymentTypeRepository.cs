@@ -6,7 +6,7 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Interfaces
 {
-    public interface IPaymentTypeRepository : IRepository<PaymentType>
+    public interface IPaymentTypeRepository
     {
         //Pobranie typu płatności po nazwie płatności
         PaymentType GetPaymentTypeByPaymentTypeName(string paymentTypeName);

@@ -218,6 +218,8 @@
     <Compile Include="Repository\EmployeeRepository.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Repository\PaymentTypeRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\ProductTypeRepository.cs" />
     <Compile Include="Repository\UnitRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,43 +7,11 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Repository
 {
-    public class PaymentTypeRepository :IPaymentTypeRepository
+    public class PaymentTypeRepository :GenericRepository<PaymentType,WholeSaleDbContext>,IPaymentTypeRepository
     {
-        private WholeSaleDbContext _dbContext;
-
-        public PaymentTypeRepository()
-        {
-            _dbContext = new WholeSaleDbContext();
-        }
-
-        public PaymentType GetById(int id)
-        {
-            return _dbContext.PaymentTypes.Find(id);
-        }
-
         public PaymentType GetPaymentTypeByPaymentTypeName(string paymentTypeName)
         {
-            return _dbContext.PaymentTypes.FirstOrDefault(paymentType => paymentType.Type == paymentTypeName);
-        }
-
-        public IQueryable<PaymentType> FindBy(Func<PaymentType, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(PaymentType element)
-        {
-            _dbContext.PaymentTypes.Add(element);
-        }
-
-        public void Delete(PaymentType element)
-        {
-            _dbContext.PaymentTypes.Remove(element);
-        }
-
-        public void SaveChanges()
-        {
-            _dbContext.SaveChanges();
+            return FindBy(p => p.Type == paymentTypeName).FirstOrDefault();
         }
     }
 }

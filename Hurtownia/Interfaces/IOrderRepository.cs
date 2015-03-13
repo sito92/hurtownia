@@ -6,7 +6,7 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Interfaces
 {
-    public interface IOrderRepository : IRepository<Order>
+    public interface IOrderRepository
     {
         //Pobranie zamówienia po kliencie
         IQueryable<Order> GerOrderByClient(Client client);

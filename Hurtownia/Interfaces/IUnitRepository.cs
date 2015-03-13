@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Hurtownia.Interfaces
 {
-    public interface IUnitRepository : IRepository<Unit>
+    public interface IUnitRepository
     {
         //Pobranie jednostki po nazwie
-        IQueryable<Unit> GetUnitByName(string name);
+        Unit GetUnitByName(string name);
     }
 }

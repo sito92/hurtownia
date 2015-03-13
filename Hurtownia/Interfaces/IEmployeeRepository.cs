@@ -6,7 +6,7 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Interfaces
 {
-    public interface IEmployeeRepository : IRepository<Employee>
+    public interface IEmployeeRepository
     {
         //Pobranie pracownika po imieniu
         IQueryable<Employee> GetEmployeeByName(string name);
