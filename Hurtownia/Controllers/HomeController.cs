@@ -10,16 +10,12 @@ namespace Hurtownia.Controllers
 
         public HomeController(IUnitRepository repository)
         {
-            unitRepository = unitRepository;
+            unitRepository = repository;
         }
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            //using (WholeSaleDbContext context = new WholeSaleDbContext())
-            //{
-            //    context.PaymentTypes.Add(new PaymentType() {Type = "Karta"});
-            //    context.SaveChanges();
-            //}
+            unitRepository.GetUnitByName("kilo");
 
             return View();
         }

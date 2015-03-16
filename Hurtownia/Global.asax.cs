@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Hurtownia.Infrastructure;
 
 namespace Hurtownia
 {
@@ -14,7 +15,7 @@ namespace Hurtownia
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
