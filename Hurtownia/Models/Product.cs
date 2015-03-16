@@ -26,5 +26,7 @@ namespace Hurtownia.Models
         [Required]
         [Display(Name = "Cena")]
         public float Price { get; set; }
+
+        public int Amount { get; set; }
     }
 }
