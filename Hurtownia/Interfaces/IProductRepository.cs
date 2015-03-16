@@ -8,7 +8,7 @@ namespace Hurtownia.Interfaces
     {
         //Pobranie produktu po nazwie
         Product GetProductByName(string name);
-
+        Product GetProductById(int id);
         //Pobranie produktu po jednostce
         IQueryable<Product> GetProductByUnit(Unit unit);
 

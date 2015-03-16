@@ -14,6 +14,11 @@ namespace Hurtownia.Repository
             return FindBy(p => p.Name == name).FirstOrDefault();
         }
 
+        public Product GetProductById(int id)
+        {
+            return FindBy(p => p.Id == id).FirstOrDefault();
+        }
+
         public IQueryable<Product> GetProductByUnit(Unit unit)
         {
             return FindBy(p => p.Unit == unit);
