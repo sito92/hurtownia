@@ -27,6 +27,7 @@ namespace Hurtownia.Infrastructure
         private void AddBindings()
         {
             ninjectKernel.Bind<IUnitRepository>().To<UnitRepository>();
+            ninjectKernel.Bind<IProductRepository>().To<ProductRepository>();
         }
     }
 }

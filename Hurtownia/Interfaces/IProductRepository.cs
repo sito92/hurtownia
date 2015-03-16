@@ -4,7 +4,7 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository:IRepository<Product>
     {
         //Pobranie produktu po nazwie
         Product GetProductByName(string name);

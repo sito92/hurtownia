@@ -16,6 +16,11 @@ namespace Hurtownia.Interfaces
             return query;
         }
 
+        public IEnumerable<T> GetAll()
+        {
+           return _entities.Set<T>();
+        }
+
         public virtual void Add(T element)
         {
             _entities.Set<T>().Add(element);
@@ -30,5 +35,6 @@ namespace Hurtownia.Interfaces
         {
             _entities.SaveChanges();
         }
+
     }
 }
