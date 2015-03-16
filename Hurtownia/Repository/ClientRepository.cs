@@ -13,5 +13,10 @@ namespace Hurtownia.Repository
         {
             return FindBy(c => c.Surname == surname);
         }
+
+        public override void Save(Client element)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

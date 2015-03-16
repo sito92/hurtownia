@@ -36,17 +36,35 @@ namespace Hurtownia.Controllers
         public ViewResult Edit(int id=1)
         {
             Product product = productRepository.GetProductById(id);
-            if (product!=null)
+            return product!=null ? View(product) : ProductNotFound();
+        }
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
             {
-                return View(product); 
+                productRepository.Save(product);
+                TempData["message"] = "Produkt pomyślnie edytowany";
+                return RedirectToAction("List");
             }
             else
             {
-                ViewBag.ErrorMessage = "Nie znalezniono produktu";
-                return View("MyErrorView"); 
+                return View(product);
             }
-
         }
+        private ViewResult ProductNotFound()
+        {
+            ViewBag.ErrorMessage = "Nie znalezniono produktu";
+            return View("MyErrorView");
+        }
+
+        public ViewResult Details(int id = 1)
+        {
+            Product product = productRepository.GetProductById(id);
+            return product != null ? View(product) : ProductNotFound();
+        }
+     
+        
 
     }
 }

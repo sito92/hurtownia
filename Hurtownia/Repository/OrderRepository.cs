@@ -23,5 +23,10 @@ namespace Hurtownia.Repository
         {
             return FindBy(o => o.Employee == employee);
         }
+
+        public override void Save(Order element)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

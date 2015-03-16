@@ -13,6 +13,7 @@ namespace Hurtownia.Interfaces
 
         void Delete(T element);
 
+        void Save(T element);
         void SaveChanges();
     }
 }

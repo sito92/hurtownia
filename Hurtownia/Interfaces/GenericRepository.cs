@@ -8,7 +8,7 @@ namespace Hurtownia.Interfaces
 {
     public abstract class GenericRepository<T,C> : IRepository<T> where T : class where C : DbContext, new() 
     {
-        private C _entities = new C();
+        protected C _entities = new C();
 
         public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T,bool>> predicate)
         {
@@ -30,6 +30,9 @@ namespace Hurtownia.Interfaces
         {
             _entities.Set<T>().Remove(element);
         }
+
+        public abstract void Save(T element);
+
 
         public virtual void SaveChanges()
         {

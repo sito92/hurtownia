@@ -13,5 +13,10 @@ namespace Hurtownia.Repository
         {
             return FindBy(p => p.Type == paymentTypeName).FirstOrDefault();
         }
+
+        public override void Save(PaymentType element)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

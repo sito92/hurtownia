@@ -30,6 +30,13 @@
         </header>
         <div id="body">
             @RenderSection("featured", required: false)
+
+            <div>
+                @if (TempData["message"] != null)
+                {
+                    <div class="Message"> @TempData["message"]</div>
+                }
+            </div>
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
             </section>

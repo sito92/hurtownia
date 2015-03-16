@@ -13,5 +13,10 @@ namespace Hurtownia.Repository
         {
             return FindBy(u => u.Name == name).FirstOrDefault();
         }
+
+        public override void Save(Unit element)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

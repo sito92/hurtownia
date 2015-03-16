@@ -38,5 +38,19 @@ namespace Hurtownia.Repository
         {
             return FindBy(p => p.Price == price);
         }
+
+        public override void Save(Product element)
+        {
+            Product prod = GetProductById(element.Id);
+
+            if (prod!=null)
+            {
+                //TODO Uzupełnić przepisywanie propercji
+                prod.Name = element.Name;
+
+
+                _entities.SaveChanges();
+            }
+        }
     }
 }
