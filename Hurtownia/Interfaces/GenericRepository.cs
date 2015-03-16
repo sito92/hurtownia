@@ -10,9 +10,9 @@ namespace Hurtownia.Interfaces
     {
         private C _entities = new C();
 
-        public IQueryable<T> FindBy(Func<T,bool> predicate)
+        public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T,bool>> predicate)
         {
-            var query = (IQueryable<T>) _entities.Set<T>().Where(predicate);
+            var query = _entities.Set<T>().Where(predicate);
             return query;
         }
 

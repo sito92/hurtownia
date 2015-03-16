@@ -5,7 +5,7 @@ namespace Hurtownia.Interfaces
 {
     public interface IRepository<T>
     {
-        IQueryable<T> FindBy(Func<T, bool> predicate);
+        IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate);
  
         void Add(T element);
 
