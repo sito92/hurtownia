@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Hurtownia.Interfaces;
 using Hurtownia.Models;
 using System.Reflection;
+using Hurtownia.Models.ViewModels;
 
 namespace Hurtownia.Controllers
 {
@@ -47,6 +48,17 @@ namespace Hurtownia.Controllers
 
             return View();
         }
+
+        public ViewResult Search2(ProductsViewModel viewModel)
+        {
+            foreach (var filter in viewModel.Filters)
+            {
+                viewModel.Products = viewModel.Products.Where(filter);
+            }
+
+            return View(viewModel);
+        }
+
 
     }
 }
