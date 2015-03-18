@@ -1,0 +1,54 @@
+﻿@model Hurtownia.Models.ViewModels.ProductsViewModel
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("List","Product")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FilterProduct</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FilterProduct.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FilterProduct.Name)
+            @Html.ValidationMessageFor(model => model.FilterProduct.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FilterProduct.Ammount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FilterProduct.Ammount)
+            @Html.ValidationMessageFor(model => model.FilterProduct.Ammount)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FilterProduct.MinPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FilterProduct.MinPrice)
+            @Html.ValidationMessageFor(model => model.FilterProduct.MinPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FilterProduct.MaxPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FilterProduct.MaxPrice)
+            @Html.ValidationMessageFor(model => model.FilterProduct.MaxPrice)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

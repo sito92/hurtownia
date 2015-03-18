@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.Mvc;
 using Hurtownia.Interfaces;
 using Hurtownia.Models;
 using Hurtownia.Models.ViewModels;
+using Microsoft.Ajax.Utilities;
 
 namespace Hurtownia.Controllers
 {
@@ -22,15 +24,7 @@ namespace Hurtownia.Controllers
         {
             return View();
         }
-
-        public ViewResult List()
-        {
-            ProductsViewModel viewModel = new ProductsViewModel()
-            {
-                Products = productRepository.GetAll()
-            };
-            return View(viewModel);
-        }
+      
 
         public ViewResult Edit(int id=1)
         {
@@ -57,6 +51,22 @@ namespace Hurtownia.Controllers
             return View("MyErrorView");
         }
 
+        public ViewResult List(ProductsViewModel viewModel)
+        
+        {
+            
+            viewModel.Products = productRepository.GetAll();
+
+                viewModel.FilterProduct = viewModel.FilterProduct ?? new FilterProduct();
+                viewModel.Products = viewModel.Products.Where(x => x.Amount == (viewModel.FilterProduct.Ammount ?? x.Amount));
+                viewModel.Products = viewModel.Products.Where(x => x.Name == (viewModel.FilterProduct.Name ?? x.Name));
+                viewModel.Products = viewModel.Products.Where(x => x.Price >= (viewModel.FilterProduct.MinPrice ?? x.Price));
+                viewModel.Products = viewModel.Products.Where(x => x.Price <= (viewModel.FilterProduct.MaxPrice ?? x.Price));
+                viewModel.Products = viewModel.Products.Where(x => x.ProductType.Name == (viewModel.FilterProduct.Name ?? x.ProductType.Name));
+
+                
+            return View(viewModel);
+        }
         public ViewResult Details(int id = 1)
         {
             Product product = productRepository.GetProductById(id);

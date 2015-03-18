@@ -7,6 +7,7 @@ using Hurtownia.Interfaces;
 using Hurtownia.Models;
 using System.Reflection;
 using Hurtownia.Models.ViewModels;
+using Microsoft.Ajax.Utilities;
 
 namespace Hurtownia.Controllers
 {
@@ -25,7 +26,7 @@ namespace Hurtownia.Controllers
         }
 
         public ViewResult Search(Product product)
-        {
+        {/*
             var ab = product.GetType().GetProperties(); // pozyskanie propercji klasy produkt
 
             var dict = new Dictionary<PropertyInfo, Func<object, List<Product>>>(); // słownik przypisujący każdej propercji określoną metodę
@@ -45,18 +46,25 @@ namespace Hurtownia.Controllers
             }
 
             //no i tu jakoś wywołać wszystkie metody z methodsToInvoke
-
+            */
             return View();
         }
-
-        public ViewResult Search2(ProductsViewModel viewModel)
+        [HttpPost]
+        public ActionResult SearchProducts(FilterProduct model)
         {
-            foreach (var filter in viewModel.Filters)
+            ProductsViewModel viewModel = new ProductsViewModel()
             {
-                viewModel.Products = viewModel.Products.Where(filter);
+                FilterProduct = model,
+
+            };
+            viewModel.Products = _iProductRepository.GetAll();
+
+            if (model.Ammount!=null)
+            {
+                viewModel.Products = viewModel.Products.Where(x => x.Amount == model.Ammount);
             }
 
-            return View(viewModel);
+            return RedirectToAction("List", "Product");
         }
 
 

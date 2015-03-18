@@ -5,19 +5,5 @@
 }
 
 <h2>List</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model.Products) {
-    <tr>
-      @{ Html.RenderPartial("ProductListRow", item); }
-    </tr>
-}
-
-</table>
+@{ var cos = Model.FilterProduct;}
+@{Html.RenderPartial("FilterProduct",Model);}
