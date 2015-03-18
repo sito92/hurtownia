@@ -62,8 +62,9 @@ namespace Hurtownia.Controllers
                 viewModel.Products = viewModel.Products.Where(x => x.Name == (viewModel.FilterProduct.Name ?? x.Name));
                 viewModel.Products = viewModel.Products.Where(x => x.Price >= (viewModel.FilterProduct.MinPrice ?? x.Price));
                 viewModel.Products = viewModel.Products.Where(x => x.Price <= (viewModel.FilterProduct.MaxPrice ?? x.Price));
-                viewModel.Products = viewModel.Products.Where(x => x.ProductType.Name == (viewModel.FilterProduct.Name ?? x.ProductType.Name));
-
+                viewModel.Products = viewModel.Products.Where(x => x.ProductType.Name == (viewModel.FilterProduct.ProductType.Name ?? x.ProductType.Name));
+                   
+            ViewBag.ProductTypes = productRepository.GetAll().Select(x => x.ProductType).Distinct();
                 
             return View(viewModel);
         }
