@@ -43,6 +43,7 @@
             @Html.ValidationMessageFor(model => model.FilterProduct.MaxPrice)
         </div>
 
+            @Html.DropDownListFor(x=>x.FilterProduct.ProductType,new SelectList(ViewBag.ProductTypes))
         <p>
             <input type="submit" value="Save" />
         </p>

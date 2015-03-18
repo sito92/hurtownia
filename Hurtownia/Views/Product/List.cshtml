@@ -6,4 +6,11 @@
 
 <h2>List</h2>
 @{ var cos = Model.FilterProduct;}
-@{Html.RenderPartial("FilterProduct",Model);}
+@{Html.RenderPartial("FilterProduct", Model);}
+
+@{
+    foreach (var product in Model.Products)
+    {
+        Html.RenderPartial("ProductRow", product);
+    }
+}
