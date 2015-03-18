@@ -18,7 +18,6 @@ namespace Hurtownia.Controllers
             productRepository = repository;
         }
 
-
         public ActionResult Index()
         {
             return View();
