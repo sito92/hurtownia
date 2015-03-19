@@ -5,7 +5,7 @@ namespace Hurtownia.Models
     public class WholeSaleDbContext : DbContext
     {
         public WholeSaleDbContext()
-            : base("DefaultConnection")
+            : base("LocalConnection")
         {
             
         }
