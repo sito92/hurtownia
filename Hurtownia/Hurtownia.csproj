@@ -350,8 +350,9 @@
     <Content Include="Views\Shared\MyErrorView.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Shared\FilterProduct.cshtml" />
-    <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\ProductRow.cshtml" />
+    <Content Include="Views\Product\Test.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

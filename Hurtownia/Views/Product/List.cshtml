@@ -5,12 +5,19 @@
 }
 
 <h2>List</h2>
-@{ var cos = Model.FilterProduct;}
-@{Html.RenderPartial("FilterProduct", Model);}
+
+<fieldset>
+    <legend>ProductsViewModel</legend>
 
 @{
     foreach (var product in Model.Products)
     {
-        Html.RenderPartial("ProductRow", product);
+        @product.Name;
     }
 }
+    @Html.DropDownList("sadfa", new SelectList(ViewBag.ProductTypes));
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
