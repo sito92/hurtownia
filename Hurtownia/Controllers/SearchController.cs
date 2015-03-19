@@ -26,27 +26,7 @@ namespace Hurtownia.Controllers
         }
 
         public ViewResult Search(Product product)
-        {/*
-            var ab = product.GetType().GetProperties(); // pozyskanie propercji klasy produkt
-
-            var dict = new Dictionary<PropertyInfo, Func<object, List<Product>>>(); // słownik przypisujący każdej propercji określoną metodę
-
-            var methodsToInvoke = new List<Func<object, List<Product>>>(); // lista metod do wykonania
-
-            dict.Add(ab[0],_iProductRepository.GetProductByProductType); //przykład
-
-            foreach (var prop in product.GetType().GetProperties())
-            {
-                var a = prop.GetValue(product, new object[] {});
-
-                if (a != null)
-                {
-                    methodsToInvoke.Add(dict[prop]); //dodanie odpowiednich metod do zbioru tych, które powinny się wykonać
-                }
-            }
-
-            //no i tu jakoś wywołać wszystkie metody z methodsToInvoke
-            */
+        {
             return View();
         }
         [HttpPost]
@@ -66,7 +46,5 @@ namespace Hurtownia.Controllers
 
             return RedirectToAction("List", "Product");
         }
-
-
     }
 }
