@@ -1,36 +1,38 @@
 ﻿@model Hurtownia.Models.Product
 
-<fieldset>
-    <legend>Product</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ExpiryDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ExpiryDate)
-    </div>
+    <tr>
+        <td>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+        </td>
+        <td>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.ExpiryDate)
+            </div>
+        </td>
+        <td>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Price)
+            </div>
+        </td>
+        <td>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Amount)
+            </div>
+        </td>
+        <td>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.ProductType.Name)
+            </div>
+        </td>
+        <td>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Unit.Name)
+            </div>
+        </td>
+        <td>@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |</td>
+    </tr>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Price)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Price)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Amount)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Amount)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-</p>

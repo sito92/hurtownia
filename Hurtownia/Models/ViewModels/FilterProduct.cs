@@ -14,6 +14,6 @@ namespace Hurtownia.Models.ViewModels
         public int? MinPrice { get; set; }
 
         public int? MaxPrice { get; set; }
-        public ProductType ProductType { get; set; }
+        public string ProductTypeName { get; set; }
     }
 }

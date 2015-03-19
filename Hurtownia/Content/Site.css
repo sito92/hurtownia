@@ -754,3 +754,6 @@ tr.pager td {
             margin: 0;
         }
 }
+td,th {
+    padding: 15px;
+}

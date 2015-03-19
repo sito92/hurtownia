@@ -64,9 +64,9 @@ namespace Hurtownia.Controllers
             return View(products);
         }
         public ViewResult List(ProductsViewModel viewModel)
-        
-        {
 
+        {
+            string allTypes = "Wszystkie";
             
            // viewModel.Products = productRepository.GetAll();
 
@@ -75,11 +75,11 @@ namespace Hurtownia.Controllers
                 .Where(x => x.Name == (viewModel.FilterProduct.Name ?? x.Name))
                 .Where(x => x.Price >= (viewModel.FilterProduct.MinPrice ?? x.Price))
                 .Where(x => x.Price <= (viewModel.FilterProduct.MaxPrice ?? x.Price))
-                .Where(x => x.ProductType.Name == "owoc");
+                .Where(x => x.ProductType.Name == (viewModel.FilterProduct.ProductTypeName ?? x.ProductType.Name));
 
-
-            ViewBag.ProductTypes = productRepository.GetAll().Select(x => x.ProductType).Select(x => x.Name);
-                
+            List<string> types = productRepository.GetAll().Select(x => x.ProductType).Select(x => x.Name).ToList();
+            types.Add(allTypes);
+            ViewBag.ProductTypes = types
             return View(viewModel);
         }
         public ViewResult Details(int id = 1)

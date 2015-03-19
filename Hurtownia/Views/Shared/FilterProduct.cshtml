@@ -43,9 +43,14 @@
             @Html.ValidationMessageFor(model => model.FilterProduct.MaxPrice)
         </div>
 
-            
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FilterProduct.ProductTypeName)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.FilterProduct.ProductTypeName,new SelectList(ViewBag.ProductTypes))
+        </div>  
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Filter" />
         </p>
     </fieldset>
 }
