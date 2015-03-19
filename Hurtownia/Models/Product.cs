@@ -13,11 +13,11 @@ namespace Hurtownia.Models
 
         [Required]
         [Display(Name = "Jednostka")]
-        public Unit Unit { get; set; }
+        public virtual Unit Unit { get; set; }
 
         [Required]
         [Display(Name = "Typ produktu")]
-        public ProductType ProductType { get; set; }
+        public virtual ProductType ProductType { get; set; }
 
         [Required]
         [Display(Name = "Data ważności")]

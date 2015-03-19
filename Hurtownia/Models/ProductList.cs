@@ -7,10 +7,10 @@ namespace Hurtownia.Models
         public int Id { get; set; }
 
         [Display(Name = "Produkt")]
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
 
         [Display(Name = "Zamówienie")]
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
 
         [Display(Name = "Ilość")]
         public int Amount { get; set; }
