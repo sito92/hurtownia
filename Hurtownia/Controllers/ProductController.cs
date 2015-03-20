@@ -70,16 +70,18 @@ namespace Hurtownia.Controllers
             
            // viewModel.Products = productRepository.GetAll();
 
-                viewModel.FilterProduct = viewModel.FilterProduct ?? new FilterProduct();
+                viewModel.FilterProduct = viewModel.FilterProduct ?? new FilterProduct(){ProductTypeName = allTypes};
                 viewModel.Products = productRepository.GetAll().Where(x => x.Amount == (viewModel.FilterProduct.Ammount ?? x.Amount))
                 .Where(x => x.Name == (viewModel.FilterProduct.Name ?? x.Name))
                 .Where(x => x.Price >= (viewModel.FilterProduct.MinPrice ?? x.Price))
                 .Where(x => x.Price <= (viewModel.FilterProduct.MaxPrice ?? x.Price))
-                .Where(x => x.ProductType.Name == (viewModel.FilterProduct.ProductTypeName ?? x.ProductType.Name));
+                .Where(x => x.ProductType.Name == (viewModel.FilterProduct.ProductTypeName == allTypes ? x.ProductType.Name : viewModel.FilterProduct.ProductTypeName));
 
-            List<string> types = productRepository.GetAll().Select(x => x.ProductType).Select(x => x.Name).ToList();
-            types.Add(allTypes);
-            ViewBag.ProductTypes = types
+
+            var stringTypes  = productRepository.GetAll().Select(x => x.ProductType).Select(x => x.Name).ToList();
+            stringTypes.
+
+            ViewBag.PRoductTypes = stringTypes;
             return View(viewModel);
         }
         public ViewResult Details(int id = 1)
