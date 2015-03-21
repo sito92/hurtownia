@@ -10,5 +10,6 @@ namespace Hurtownia.Interfaces
     {
         //Pobranie typu produktu po nazwie. I co ci tu kurwa wyskoczy, id? -.-'
         ProductType GetProductTypeByName(string name);
+
     }
 }

@@ -232,9 +232,9 @@
     <Compile Include="Repository\UnitRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\LocalDatabase.mdf" />
-    <Content Include="App_Data\LocalDatabase_log.ldf">
-      <DependentUpon>LocalDatabase.mdf</DependentUpon>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -349,10 +349,10 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Shared\MyErrorView.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Shared\FilterProduct.cshtml" />
     <Content Include="Views\Product\ProductRow.cshtml" />
     <Content Include="Views\Product\Test.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Shared\FilterProduct.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

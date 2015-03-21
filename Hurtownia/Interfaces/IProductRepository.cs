@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Hurtownia.Models;
 
@@ -20,5 +21,7 @@ namespace Hurtownia.Interfaces
 
         //Pobranie produktu po cenie
         IQueryable<Product> GetProductByPrice(float price);
+
+        IEnumerable<ProductType> GProductTypes();
     }
 }

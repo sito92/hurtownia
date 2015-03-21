@@ -10,10 +10,12 @@ namespace Hurtownia.Models.ViewModels
         public string Name { get; set; }
         public int? Ammount { get; set; }
 
-        public Unit Unit { get; set; }
+        public int UnitId { get; set; }
         public int? MinPrice { get; set; }
 
         public int? MaxPrice { get; set; }
-        public string ProductTypeName { get; set; }
+        public int ProductTypeId { get; set; }
+
+        public bool IsFiltering { get; set; }
     }
 }

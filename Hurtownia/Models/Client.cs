@@ -30,10 +30,13 @@ namespace Hurtownia.Models
         public string EMail {get; set;}
 
         [Required]
-        public Address Address { get; set; }
+        public int AdressId { get; set; } 
 
         [Required]
         [Display(Name = "Typ klienta")]
         public string ClientType { get; set; }
+
+
+        public Address Address { get; set; }
     }
 }

@@ -29,6 +29,7 @@ namespace Hurtownia.Controllers
 
         public ViewResult Edit(int id=1)
         {
+            ViewBag.ProductTypes = productRepository.GProductTypes().Select(x=>x.Name);
             Product product = productRepository.GetProductById(id);
             return product!=null ? View(product) : ProductNotFound();
         }
@@ -66,22 +67,26 @@ namespace Hurtownia.Controllers
         public ViewResult List(ProductsViewModel viewModel)
 
         {
-            string allTypes = "Wszystkie";
+            
             
            // viewModel.Products = productRepository.GetAll();
 
-                viewModel.FilterProduct = viewModel.FilterProduct ?? new FilterProduct(){ProductTypeName = allTypes};
-                viewModel.Products = productRepository.GetAll().Where(x => x.Amount == (viewModel.FilterProduct.Ammount ?? x.Amount))
-                .Where(x => x.Name == (viewModel.FilterProduct.Name ?? x.Name))
-                .Where(x => x.Price >= (viewModel.FilterProduct.MinPrice ?? x.Price))
-                .Where(x => x.Price <= (viewModel.FilterProduct.MaxPrice ?? x.Price))
-                .Where(x => x.ProductType.Name == (viewModel.FilterProduct.ProductTypeName == allTypes ? x.ProductType.Name : viewModel.FilterProduct.ProductTypeName));
+            viewModel.FilterProduct = viewModel.FilterProduct ?? new FilterProduct();
+            viewModel.Products = productRepository.GetAll();
+            if (viewModel.FilterProduct.IsFiltering)
+            {
+                viewModel.Products = viewModel.Products
+                    .Where(x => x.Amount == (viewModel.FilterProduct.Ammount ?? x.Amount))
+                    .Where(x => x.Name == (viewModel.FilterProduct.Name ?? x.Name))
+                    .Where(x => x.Price >= (viewModel.FilterProduct.MinPrice ?? x.Price))
+                    .Where(x => x.Price <= (viewModel.FilterProduct.MaxPrice ?? x.Price))
+                    .Where(x => x.ProductTypeID == (viewModel.FilterProduct.ProductTypeId == 0 ? x.ProductTypeID : viewModel.FilterProduct.ProductTypeId))
+                    .Where(x => x.UnitId == (viewModel.FilterProduct.UnitId == 0 ? x.UnitId : viewModel.FilterProduct.UnitId));
 
+            }
 
-            var stringTypes  = productRepository.GetAll().Select(x => x.ProductType).Select(x => x.Name).ToList();
-            stringTypes.
-
-            ViewBag.PRoductTypes = stringTypes;
+            PopulateProductTypes(viewModel.FilterProduct.ProductTypeId);
+            PopulateUnits(viewModel.FilterProduct.UnitId);
             return View(viewModel);
         }
         public ViewResult Details(int id = 1)
@@ -89,8 +94,24 @@ namespace Hurtownia.Controllers
             Product product = productRepository.GetProductById(id);
             return product != null ? View(product) : ProductNotFound();
         }
-     
-        
+
+        private void  PopulateProductTypes(object selectedType =  null)
+        {
+            var typesList = productRepository.GetAll().Select(x => x.ProductType).OrderBy(x => x.Name).Distinct().ToList();
+            typesList.Insert(0,new ProductType(){Id = 0,Name = "Wszystkie"});
+            ViewBag.ProductTypes = new SelectList(typesList, "Id", "Name", selectedType??0);
+
+        }
+
+        private void PopulateUnits(object selectedUnit = null)
+        {
+            var unitList = productRepository.GetAll().Select(x => x.Unit).OrderBy(x => x.Name).Distinct().ToList();
+            unitList.Insert(0, new Unit() {Id = 0,Name = "Wszystkie"});
+            ViewBag.Units = new SelectList(unitList, "Id", "Name", selectedUnit ?? 0);
+
+        }
+       
+
 
     }
 }

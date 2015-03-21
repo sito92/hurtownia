@@ -9,6 +9,7 @@ namespace Hurtownia.Repository
 {
     public class ProductRepository : GenericRepository<Product,WholeSaleDbContext>,IProductRepository
     {
+        private const string all = "Wszystkie";
         public Product GetProductByName(string name)
         {
             return FindBy(p => p.Name == name).FirstOrDefault();
@@ -37,6 +38,14 @@ namespace Hurtownia.Repository
         public IQueryable<Product> GetProductByPrice(float price)
         {
             return FindBy(p => p.Price == price);
+        }
+
+        public IEnumerable<ProductType> GProductTypes()
+        {
+            var types = new List<ProductType> {new ProductType() {Name = all}};
+            types.AddRange(GetAll().Select(x=>x.ProductType));
+            return types;
+
         }
 
         public override void Save(Product element)
