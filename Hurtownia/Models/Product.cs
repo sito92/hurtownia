@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace Hurtownia.Models
 {
@@ -13,10 +14,12 @@ namespace Hurtownia.Models
 
         [Required]
         [Display(Name = "Jednostka")]
+        [Range(1, Int32.MaxValue, ErrorMessage = "Musisz podać konkretną jednostkę")]
         public int UnitId { get; set; }
 
         [Required]
         [Display(Name = "Typ produktu")]
+        [Range(1,Int32.MaxValue,ErrorMessage = "Musisz podać konkretny typ")]
         public int ProductTypeID { get; set; }
 
         [Required]
@@ -24,8 +27,10 @@ namespace Hurtownia.Models
         public DateTime ExpiryDate { get; set; }
 
         [Required]
+        
         [Display(Name = "Cena")]
-        public float Price { get; set; }
+        [DataType(DataType.Currency)]
+        public decimal Price { get; set; }
 
         public int Amount { get; set; }
 

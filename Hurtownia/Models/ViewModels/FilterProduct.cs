@@ -11,9 +11,9 @@ namespace Hurtownia.Models.ViewModels
         public int? Ammount { get; set; }
 
         public int UnitId { get; set; }
-        public int? MinPrice { get; set; }
+        public decimal? MinPrice { get; set; }
 
-        public int? MaxPrice { get; set; }
+        public decimal? MaxPrice { get; set; }
         public int ProductTypeId { get; set; }
 
         public bool IsFiltering { get; set; }

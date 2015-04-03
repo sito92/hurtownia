@@ -29,8 +29,10 @@ namespace Hurtownia.Controllers
 
         public ViewResult Edit(int id=1)
         {
-            ViewBag.ProductTypes = productRepository.GProductTypes().Select(x=>x.Name);
+            
             Product product = productRepository.GetProductById(id);
+            PopulateProductTypes(product.ProductTypeID);
+            PopulateUnits(product.UnitId);
             return product!=null ? View(product) : ProductNotFound();
         }
         [HttpPost]
@@ -115,3 +117,4 @@ namespace Hurtownia.Controllers
 
     }
 }
+

@@ -21,7 +21,7 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
-        </div>
+        </div>       
 
         <div class="editor-label">
             @Html.LabelFor(model => model.ExpiryDate)
@@ -47,13 +47,20 @@
             @Html.ValidationMessageFor(model => model.Amount)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.ProductType.Name)
+            @Html.LabelFor(model => model.UnitId)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ProductType.Name,new SelectList(ViewBag.ProductTypes))
-            @Html.ValidationMessageFor(model => model.ProductType.Name)
+            @Html.DropDownListFor(model => model.UnitId, (SelectList)ViewBag.Units)
+            @Html.ValidationMessageFor(model => model.UnitId)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductTypeID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ProductTypeID,(SelectList)ViewBag.ProductTypes)
+            @Html.ValidationMessageFor(model => model.ProductTypeID)
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>
@@ -61,7 +68,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "List")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

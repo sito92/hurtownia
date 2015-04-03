@@ -20,7 +20,7 @@ namespace Hurtownia.Interfaces
         IQueryable<Product> GetProductByExpiryDate(DateTime expiryDate);
 
         //Pobranie produktu po cenie
-        IQueryable<Product> GetProductByPrice(float price);
+        IQueryable<Product> GetProductByPrice(decimal price);
 
         IEnumerable<ProductType> GProductTypes();
     }

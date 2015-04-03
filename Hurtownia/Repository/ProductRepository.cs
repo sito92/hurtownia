@@ -35,7 +35,7 @@ namespace Hurtownia.Repository
             return FindBy(p => p.ExpiryDate == expiryDate);
         }
 
-        public IQueryable<Product> GetProductByPrice(float price)
+        public IQueryable<Product> GetProductByPrice(decimal price)
         {
             return FindBy(p => p.Price == price);
         }
@@ -56,7 +56,10 @@ namespace Hurtownia.Repository
             {
                 //TODO Uzupełnić przepisywanie propercji
                 prod.Name = element.Name;
-
+                prod.Price = element.Price;
+                prod.Amount = element.Amount;
+                prod.ProductTypeID = element.ProductTypeID;
+                prod.UnitId = element.UnitId;
 
                 _entities.SaveChanges();
             }
