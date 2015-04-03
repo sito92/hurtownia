@@ -349,6 +349,7 @@
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Shared\FilterProduct.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -58,7 +58,7 @@
             @Html.LabelFor(model => model.ProductTypeID)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ProductTypeID,(SelectList)ViewBag.ProductTypes)
+            @Html.DropDownListFor(model => model.ProductTypeID, (SelectList)ViewBag.ProductTypes)
             @Html.ValidationMessageFor(model => model.ProductTypeID)
         </div>
         <p>

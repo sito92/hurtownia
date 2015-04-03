@@ -23,6 +23,7 @@ namespace Hurtownia.Models
         public int ProductTypeID { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Data ważności")]
         public DateTime ExpiryDate { get; set; }
 

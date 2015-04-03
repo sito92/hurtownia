@@ -61,8 +61,13 @@ namespace Hurtownia.Repository
                 prod.ProductTypeID = element.ProductTypeID;
                 prod.UnitId = element.UnitId;
 
-                _entities.SaveChanges();
+              
             }
+            else
+            {
+                _entities.Products.Add(element);
+            }
+            _entities.SaveChanges();
         }
     }
 }

@@ -25,8 +25,29 @@ namespace Hurtownia.Controllers
         {
             return View();
         }
-      
 
+        public ViewResult Add()
+        {
+     
+            PopulateProductTypes();
+            PopulateUnits();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(Product model)
+        {
+            if (ModelState.IsValid)
+            {
+                productRepository.Save(model);
+                TempData["message"] = "Produkt pomyślnie dodany";
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
         public ViewResult Edit(int id=1)
         {
             
