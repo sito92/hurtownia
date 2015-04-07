@@ -1,0 +1,14 @@
+﻿@model Hurtownia.Models.Cart
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+@foreach (var pr in Model.Products)
+{
+    @pr.Name;
+}
+
+@Html.ActionLink("Return to list", "List", "Product")

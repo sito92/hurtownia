@@ -1,0 +1,73 @@
+﻿@model Hurtownia.Models.Product
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Product</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExpiryDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExpiryDate)
+            @Html.ValidationMessageFor(model => model.ExpiryDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnitId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.UnitId, (SelectList)ViewBag.Units)
+            @Html.ValidationMessageFor(model => model.UnitId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductTypeID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ProductTypeID, (SelectList)ViewBag.ProductTypes)
+            @Html.ValidationMessageFor(model => model.ProductTypeID)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

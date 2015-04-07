@@ -192,6 +192,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Interfaces\IUnitRepository.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Order.cs" />
@@ -350,6 +352,7 @@
     <Content Include="Views\Shared\FilterProduct.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Add.cshtml" />
+    <Content Include="Views\Cart\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

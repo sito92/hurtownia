@@ -33,6 +33,8 @@
                 @Html.DisplayFor(model => model.Unit.Name)
             </div>
         </td>
-        <td>@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |</td>
+        <td>@Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |</td>
+        <td>@Html.ActionLink("Add to cart","AddProduct","Cart",new {productId = Model.Id},null) |</td>
+        
     </tr>
 
