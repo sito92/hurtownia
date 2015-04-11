@@ -1,4 +1,5 @@
-﻿@model Hurtownia.Models.Cart
+﻿@using System.EnterpriseServices
+@model Hurtownia.Models.Cart
 
 @{
     ViewBag.Title = "Show";
@@ -8,7 +9,9 @@
 
 @foreach (var pr in Model.Products)
 {
-    @pr.Name;
+    @pr.Product.Name;
+   
 }
 
 @Html.ActionLink("Return to list", "List", "Product")
+@Html.ActionLink("Checkout", "CheckOut", "Cart")

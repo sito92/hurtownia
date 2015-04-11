@@ -1,0 +1,12 @@
+﻿@model Hurtownia.Models.ViewModels.OrderDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@foreach (var pg in Model.ProductGroups)
+{
+    @pg.Product.Name;
+    @pg.Amount;
+}

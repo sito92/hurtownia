@@ -194,6 +194,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -218,10 +219,13 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PaymentType.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductGroup.cs" />
     <Compile Include="Models\ProductList.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\ViewModels\CheckOutViewModel.cs" />
     <Compile Include="Models\ViewModels\FilterProduct.cs" />
+    <Compile Include="Models\ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductsViewModel.cs" />
     <Compile Include="Models\WholeSaleDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,6 +238,10 @@
     <Compile Include="Repository\UnitRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Localdatabase.mdf" />
+    <Content Include="App_Data\Localdatabase_log.ldf">
+      <DependentUpon>Localdatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -353,10 +361,12 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Cart\Show.cshtml" />
+    <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Cart\OrderSummary.cshtml" />
+    <Content Include="Views\Order\List.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

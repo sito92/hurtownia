@@ -1,0 +1,50 @@
+﻿@model Hurtownia.Models.ViewModels.CheckOutViewModel
+
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2>CheckOut</h2>
+
+
+@foreach (var pr in Model.Cart.Products)
+{
+    @pr.Product.Name;
+    @pr.Amount;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x=>x.Cart);
+    <fieldset>
+        <legend>Product</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Order.PaymentTypeId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Order.PaymentTypeId, (SelectList) ViewBag.PaymentTypes)
+            @Html.ValidationMessageFor(model => model.Order.PaymentTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Order.EmployeeId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Order.EmployeeId, (SelectList) ViewBag.Employees)
+            @Html.ValidationMessageFor(model => model.Order.EmployeeId)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Order.ClientId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Order.ClientId, (SelectList)ViewBag.Clients)
+            @Html.ValidationMessageFor(model => model.Order.ClientId)
+        </div>
+        <p>
+            <input type="submit" value="CheckOut" />
+        </p>
+    </fieldset>
+}

@@ -1,6 +1,6 @@
-﻿Insert Clients(Name,Surname,NIP,CompanyName,TelephoneNumber,EMail,Address_Id) VALUES ('Jan','Kowalski','AugFaug','767123321','Jan.Ko@wp.pl',1)
+﻿Insert Clients(Name,Surname,NIP,CompanyName,TelephoneNumber,EMail,AddressId,ClientType) VALUES ('Jan','Kowalski','234252345','AugFaug','767123321','Jan.Ko@wp.pl',1,'Ulubiony klient')
 
-
+Insert Employees(Name,Surname,Login,Password,TelephoneNumber,EMail) VALUES ('Administrator','Nowak','admin','qwerty123','32434213','admin@sklep.pl')
 
 Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Dębska Kuźnia','Wiejska',32,2)
 Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Opole','Głowna',2,6)
