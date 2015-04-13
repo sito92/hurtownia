@@ -64,7 +64,10 @@ namespace Hurtownia.Controllers
         public ActionResult CheckOut(CheckOutViewModel viewModel)
         {
             viewModel.Cart = (Cart)Session["Cart"];
+            
             viewModel.Order.Client = dbContext.Clients.ToList().Find(x => x.Id == viewModel.Order.ClientId);
+            viewModel.Order.Employee = dbContext.Employees.ToList().Find(x => x.Id == viewModel.Order.EmployeeId);
+            viewModel.Order.PaymentType = dbContext.PaymentTypes.ToList().Find(x => x.Id == viewModel.Order.PaymentTypeId);
 
             List<ProductList> productLists = new List<ProductList>();
 

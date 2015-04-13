@@ -2,16 +2,31 @@
 @model Hurtownia.Models.Cart
 
 @{
-    ViewBag.Title = "Show";
+    ViewBag.Title = "Koszyk";
 }
 
-<h2>Show</h2>
+<h2>Koszyk</h2>
 
-@foreach (var pr in Model.Products)
-{
-    @pr.Product.Name;
-   
-}
+<table>
+    <tr>
+        <th>L.p.</th>
+        <th>Produkt</th>
+        <th>Ilość</th>
+        <th>Cena za sztukę</th>
+        <th>Cena</th>
+    </tr>
+    @foreach (var pr in Model.Products)
+    {
+        <tr>
+            <td>@Model.Products.IndexOf(pr)</td>
+            <td>@pr.Product.Name</td>
+            <td>@pr.Amount</td>
+            <td>@pr.Product.Price</td>
+            <td>@pr.OrderCost</td>
+        </tr>
+    }
+    <tr><td rowspan="10">Cena łączna: @Model.TotalCost</td></tr>
+</table>
 
-@Html.ActionLink("Return to list", "List", "Product")
-@Html.ActionLink("Checkout", "CheckOut", "Cart")
+@Html.ActionLink("Powrót do listy produktów", "List", "Product")
+@Html.ActionLink("Do kasy", "CheckOut", "Cart")
