@@ -1,12 +1,31 @@
 ﻿@model Hurtownia.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły produktu";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
-<fieldset>
+
+<table>
+    <tr>
+        <th>Produkt</th>
+        <th>Ilość</th>
+        <th>Jednostka</th>
+        <th>Cena za sztukę</th>
+        <th>Data ważności</th>
+    </tr>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Amount</td>
+            <td>@Model.Unit.Name</td>
+            <td>@Model.Price</td>
+            <td>@Model.ExpiryDate</td>
+        </tr>
+    
+</table>
+
+@*<fieldset>
     <legend>Product</legend>
 
     <div class="display-label">
@@ -36,8 +55,8 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Amount)
     </div>
-</fieldset>
+</fieldset>*@
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Powrót do listy produktów", "Index")
 </p>
