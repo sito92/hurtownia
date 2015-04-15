@@ -10,8 +10,9 @@
 
 <h2>Potwierdzenie zamówienia</h2>
 
+<br/>
 
-<table>
+<table class="customTable">
     <tr>
         <th>L.p.</th>
         <th>Produkt</th>
@@ -29,8 +30,14 @@
             <td>@pr.OrderCost</td>
         </tr>
     }
-    <tr><td rowspan="10">Cena łączna: @Model.Cart.TotalCost</td></tr>
+    <tr>
+        <td colspan="4">Suma</td>
+        <td>@Model.Cart.TotalCost</td>
+    </tr>
 </table>
+
+<br/>
+<br/>
 
 @using (Html.BeginForm())
 {

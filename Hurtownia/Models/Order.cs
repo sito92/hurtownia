@@ -10,7 +10,7 @@ namespace Hurtownia.Models
         [Display(Name = "Klient")]
         public int ClientId { get; set; }
 
-        [Range(1, Int32.MaxValue, ErrorMessage = "Musisz podać konkretny typ jednostki")]
+        [Range(1, Int32.MaxValue, ErrorMessage = "Musisz podać konkretny typ płatności")]
         [Display(Name = "Typ płatności")]
         public int PaymentTypeId { get; set; }
 

@@ -27,7 +27,7 @@ namespace Hurtownia.Controllers
 
         private ViewResult OrderNotFound()
         {
-            ViewBag.ErrorMessage = "Nie znalezniono zamówienia";
+            ViewBag.ErrorMessage = "Nie znaleziono zamówienia";
             return View("MyErrorView");
         }
 
