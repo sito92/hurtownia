@@ -2,7 +2,7 @@
 @model Hurtownia.Models.Product
 
 
-<table class="customTable"> 
+
     <tr>
             <td>
                 @Html.DisplayFor(model => model.Name)
@@ -34,7 +34,6 @@
         <td>@Html.ActionLink("Dodaj do karty", "AddProduct", "Cart", new { productId = Model.Id }, new { style = "text-decoration: none" })</td>
 
     </tr>
-</table>
 
 @*<table class="customTable">
     <tr>

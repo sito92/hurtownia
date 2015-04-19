@@ -2,48 +2,38 @@
 @model Hurtownia.Models.ViewModels.ProductsViewModel
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Lista produktów";
 }
-
+<br/>
 <h2>List</h2>
 
 @{Html.RenderPartial("FilterProduct",Model);}
-
+<br/>
+<br/>
 <fieldset>
     <legend>ProductsViewModel</legend>
     <table class="customTable">
         <tr>
             <th>
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Name)
-                </div>
+ 
+                   @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Name)
             </th>
             <th>
-                <div class="display-label">
                     @Html.DisplayNameFor(model => model.Products.FirstOrDefault().ExpiryDate)
-                </div>
             </th>
             <th>
-                <div class="display-label">
                     @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Price)
-                </div>
             </th>
             <th>
-                <div class="display-label">
                     @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Amount)
-                </div>
             </th>
             <th>
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Products.FirstOrDefault().ProductType)
-                </div>
+                    @Html.DisplayNameFor(model => model.Products.FirstOrDefault().ProductType.Name)
             </th>
             <th>
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Unit)
-                </div>
+                    @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Unit.Name)
             </th>
-            <th colspan="2">Actions</th>
+            <th colspan="2"></th>
         </tr>
         @{
             foreach (var product in Model.Products)

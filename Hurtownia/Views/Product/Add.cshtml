@@ -4,7 +4,8 @@
     ViewBag.Title = "Dodawanie produktu";
 }
 
-<h2>Add</h2>
+<h2>Dodaj produkt</h2>
+<br/>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -59,13 +60,13 @@
             @Html.ValidationMessageFor(model => model.ProductTypeID)
         </div>
         <p>
-            <input type="submit" value="Stwórz" />
+            <input type="submit" value="Dodaj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Powrót", "Index")
+    @Html.ActionLink("Powrót", "Index","Home")
 </div>
 
 @section Scripts {

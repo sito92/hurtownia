@@ -1,12 +1,41 @@
 ﻿@model Hurtownia.Models.ViewModels.OrderDetailsViewModel
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły zamówienia";
 }
 
-<h2>Details</h2>
-
-@foreach (var pg in Model.ProductGroups)
-{
-    @pg.Product.Name;
-    @pg.Amount;
+@{
+    var cost = 0.0;    
 }
+
+<h2>Szczegóły zamówienia nr: @Model.Order.Id</h2>
+
+<br/>
+<br/>
+
+<table class="customTable">
+    <tr>
+        <th>Klient</th>
+        <th>Typ płatności</th>
+        <th>Pracownik</th>
+        <th>Koszt zamówienia</th>
+    </tr>
+
+    @foreach (var pg in Model.ProductGroups)
+    {
+        <tr>
+            <td>@Model.Order.Client.Name[0].@Model.Order.Client.Surname</td>
+            <td>@Model.Order.PaymentType.Type</td>
+            <td>@Model.Order.Employee.Name[0].@Model.Order.Employee.Surname</td>
+            <td>
+                @{
+                    foreach (var product in @Model.ProductGroups)
+                    {
+                        cost += product.OrderCost;
+                    }
+                }
+
+                @cost
+            </td>
+        </tr>
+    }
+</table>

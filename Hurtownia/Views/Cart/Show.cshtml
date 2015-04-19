@@ -7,7 +7,7 @@
 
 <h2>Koszyk</h2>
 
-<table>
+<table class="customTable">
     <tr>
         <th>L.p.</th>
         <th>Produkt</th>
@@ -24,9 +24,15 @@
             <td>@pr.Product.Price</td>
             <td>@pr.OrderCost</td>
         </tr>
+        <tr>
+                <td colspan="4">Suma</td>
+                <td>@Model.TotalCost</td>
+            </tr>
     }
-    <tr><td rowspan="10">Cena łączna: @Model.TotalCost</td></tr>
+
 </table>
 
 @Html.ActionLink("Powrót do listy produktów", "List", "Product")
-@Html.ActionLink("Do kasy", "CheckOut", "Cart")
+<br/>
+<br/>
+<h2>@Html.ActionLink("Do kasy", "CheckOut", "Cart")</h2>

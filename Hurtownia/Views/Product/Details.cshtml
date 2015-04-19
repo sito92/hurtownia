@@ -5,58 +5,21 @@
 }
 
 <h2>Szczegóły</h2>
+<br/>
 
+<p><b> Nazwa produktu: </b>@Model.Name</p>
 
-<table class="customTable">
-    <tr>
-        <th>Produkt</th>
-        <th>Ilość</th>
-        <th>Jednostka</th>
-        <th>Cena za sztukę</th>
-        <th>Data ważności</th>
-    </tr>
-        <tr>
-            <td>@Model.Name</td>
-            <td>@Model.Amount</td>
-            <td>@Model.Unit.Name</td>
-            <td>@Model.Price</td>
-            <td>@Model.ExpiryDate</td>
-        </tr>
-    
-</table>
+<p><b> Cena: </b>@Model.Price</p>
 
-@*<fieldset>
-    <legend>Product</legend>
+<p><b> Ilość: </b>@Model.Amount</p>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
+<p><b> Data ważności: </b>@Model.ExpiryDate.ToShortDateString()</p>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ExpiryDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ExpiryDate)
-    </div>
+<p><b> Typ produktu: </b>@Model.ProductType.Name</p>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Price)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Price)
-    </div>
+<p><b> Jednostka: </b>@Model.Unit.Name</p>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Amount)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Amount)
-    </div>
-</fieldset>*@
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Powrót do listy produktów", "Index")
+    @Html.ActionLink("Powrót do listy produktów", "List","Product")
 </p>

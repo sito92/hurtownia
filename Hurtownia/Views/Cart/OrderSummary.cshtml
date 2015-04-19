@@ -6,9 +6,12 @@
 
 <h2>Podsumowanie zamówienia</h2>
 
-<h2>Nazwa klienta: @Model.Order.Client.Name @Model.Order.Client.Surname </h2>
-<p>Typ płatności: @Model.Order.PaymentType.Type</p>
-<p>Pracownik odpowiedzialny za zamówienie: @Model.Order.Employee.Name @Model.Order.Employee.Surname</p>
+<p><b>Nazwa klienta: </b> @Model.Order.Client.Name @Model.Order.Client.Surname </p>
+<p><b>Typ płatności: </b> @Model.Order.PaymentType.Type</p>
+<p><b>Pracownik odpowiedzialny za zamówienie: </b> @Model.Order.Employee.Name @Model.Order.Employee.Surname</p>
+
+<br/>
+<br/>
 
 <table class="customTable">
     <tr>
@@ -30,7 +33,10 @@
             <td>@product.OrderCost</td>
         </tr>
     }
-    <tr><td rowspan="10">Cena łączna: @Model.Cart.TotalCost</td></tr>
+    <tr>
+        <td colspan="5">Suma</td>
+        <td>@Model.Cart.TotalCost</td>
+    </tr>
 </table>
 
 @*do generowania pdfa z zamówieniem 

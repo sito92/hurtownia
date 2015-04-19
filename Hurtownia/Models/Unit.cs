@@ -8,7 +8,7 @@ namespace Hurtownia.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Imie")]
+        [Display(Name = "Jednostka")]
         public string Name { get; set; }
 
         [Required]

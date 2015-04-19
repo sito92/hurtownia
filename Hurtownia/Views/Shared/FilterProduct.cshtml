@@ -57,20 +57,16 @@
             @Html.DropDownListFor(model => model.FilterProduct.UnitId, (SelectList)ViewBag.Units)
             @Html.ValidationMessageFor(model => model.FilterProduct.UnitId)
         </div>
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.FilterProduct.IsFiltering)
-        </div>
-        <div class="editor-field">
+        </div>*@
+        @*<div class="editor-field">
             @Html.EditorFor(model => model.FilterProduct.IsFiltering)
             @Html.ValidationMessageFor(model => model.FilterProduct.IsFiltering)
-        </div>
+        </div>*@
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Wyszukaj" />
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

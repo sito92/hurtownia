@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Images/logo.png" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -12,7 +12,7 @@
 <header>
     <div class="content-wrapper">
         <div class="float-left">
-            <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+            <p class="site-title"><img src="../../Images/logo.png"/></p>
         </div>
         <div class="float-right">
             <section id="login">
@@ -22,8 +22,8 @@
                 <ul id="menu">
                     <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
                     <li>@Html.ActionLink("Wyszukaj produkt", "List", "Product")</li>
-                    <li>@Html.ActionLink("O hurtowni", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Dodaj produkt", "Add", "Product")</li>
+                    <li>@Html.ActionLink("Lista zamówień", "List", "Order")</li>
                 </ul>
             </nav>
         </div>
