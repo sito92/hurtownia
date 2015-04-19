@@ -154,3 +154,7 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+Hurtownia/App_Data/Localdatabase.mdf
+Hurtownia/App_Data/Localdatabase_log.ldf
+SQLQuery1.sql
+Saga Baldur's Gate/Saga BG.iso
