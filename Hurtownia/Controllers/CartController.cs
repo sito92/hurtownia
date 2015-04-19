@@ -30,51 +30,61 @@ namespace Hurtownia.Controllers
             return View(Session["Cart"]);
         }
 
-        public ActionResult AddProduct(int productId=0)
+        public ActionResult AddProduct(int productId = 0)
         {
-            if (Session["Cart"]==null)
+            if (Session["Cart"] == null)
             {
                 Session["Cart"] = new Cart();
             }
-            if (productRepository.FindBy(x=>x.Id == productId) != null && productId >0)
+            if (productRepository.FindBy(x => x.Id == productId) != null && productId > 0)
             {
-                ((Cart)Session["Cart"]).Add(productRepository.FindBy(x=>x.Id == productId).FirstOrDefault());
+                ((Cart)Session["Cart"]).Add(productRepository.FindBy(x => x.Id == productId).FirstOrDefault());
             }
             else
             {
                 TempData["message"] = "Produkt nie znaleziony";
             }
-            return View("Show",Session["Cart"]);
+            return View("Show", Session["Cart"]);
         }
 
         public ActionResult CheckOut()
         {
-            var viewModel = new CheckOutViewModel {Cart = (Cart) Session["Cart"]};
-            PopulatePaymentTypes();
-            PopulateEmplyees();
-            PopulateClients();
-            return View(viewModel);
+            if (Session["Cart"] != null)
+            {
+                var viewModel = new CheckOutViewModel { Cart = (Cart)Session["Cart"] };
+                PopulatePaymentTypes();
+                PopulateEmplyees();
+                PopulateClients();
+                return View(viewModel);
+            }
+
+            return View("CheckoutError");
         }
         [HttpPost]
         public ActionResult CheckOut(CheckOutViewModel viewModel)
         {
-            viewModel.Cart = (Cart) Session["Cart"];
+            viewModel.Cart = (Cart)Session["Cart"];
+            
+            viewModel.Order.Client = dbContext.Clients.ToList().Find(x => x.Id == viewModel.Order.ClientId);
+            viewModel.Order.Employee = dbContext.Employees.ToList().Find(x => x.Id == viewModel.Order.EmployeeId);
+            viewModel.Order.PaymentType = dbContext.PaymentTypes.ToList().Find(x => x.Id == viewModel.Order.PaymentTypeId);
+
             List<ProductList> productLists = new List<ProductList>();
 
             foreach (var prgr in viewModel.Cart.Products)
             {
-                productLists.Add(new ProductList(){Amount = prgr.Amount,Order = viewModel.Order,ProductId = prgr.Product.Id});
+                productLists.Add(new ProductList() { Amount = prgr.Amount, Order = viewModel.Order, ProductId = prgr.Product.Id });
             }
 
             dbContext.ProductLists.AddRange(productLists);
             dbContext.SaveChanges();
-            return View("OrderSummary");
+            return View("OrderSummary", viewModel);
         }
 
         public void PopulatePaymentTypes(object selectedType = null)
         {
             var paymentTypesList = dbContext.PaymentTypes.Distinct().ToList();
-            paymentTypesList.Insert(0, new PaymentType(){Id = 0,Type = "Wszystkie"});
+            paymentTypesList.Insert(0, new PaymentType() { Id = 0, Type = "Wszystkie" });
             ViewBag.PaymentTypes = new SelectList(paymentTypesList, "Id", "Type", selectedType ?? 0);
         }
         public void PopulateClients(object selectedType = null)

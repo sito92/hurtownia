@@ -365,6 +365,7 @@
     <Content Include="Views\Cart\OrderSummary.cshtml" />
     <Content Include="Views\Order\List.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Cart\CheckoutError.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

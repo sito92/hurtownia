@@ -4,4 +4,35 @@
     ViewBag.Title = "OrderSummary";
 }
 
-<h2>OrderSummary</h2>
+<h2>Podsumowanie zamówienia</h2>
+
+<h2>Nazwa klienta: @Model.Order.Client.Name @Model.Order.Client.Surname </h2>
+<p>Typ płatności: @Model.Order.PaymentType.Type</p>
+<p>Pracownik odpowiedzialny za zamówienie: @Model.Order.Employee.Name @Model.Order.Employee.Surname</p>
+
+<table class="customTable">
+    <tr>
+        <th>L.p.</th>
+        <th>Produkt</th>
+        <th>Ilość</th>
+        <th>Jednostka</th>
+        <th>Cena za sztukę</th>
+        <th>Cena</th>
+    </tr>
+    @foreach (var product in @Model.Cart.Products)
+    {
+        <tr>
+            <td>@Model.Cart.Products.IndexOf(product)+1</td>
+            <td>@product.Product.Name</td>
+            <td>@product.Amount</td>
+            <td>@product.Product.Unit.Name</td>
+            <td>@product.Product.Price</td>
+            <td>@product.OrderCost</td>
+        </tr>
+    }
+    <tr><td rowspan="10">Cena łączna: @Model.Cart.TotalCost</td></tr>
+</table>
+
+@*do generowania pdfa z zamówieniem 
+    @Html.ActionLink()*@
+

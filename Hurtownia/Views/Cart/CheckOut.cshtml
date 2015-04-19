@@ -1,17 +1,43 @@
 ﻿@model Hurtownia.Models.ViewModels.CheckOutViewModel
 
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 @{
-    ViewBag.Title = "CheckOut";
+    ViewBag.Title = "Potwierdzenie zamówienia";
 }
 
-<h2>CheckOut</h2>
+<h2>Potwierdzenie zamówienia</h2>
 
+<br/>
 
-@foreach (var pr in Model.Cart.Products)
-{
-    @pr.Product.Name;
-    @pr.Amount;
-}
+<table class="customTable">
+    <tr>
+        <th>L.p.</th>
+        <th>Produkt</th>
+        <th>Ilość</th>
+        <th>Cena za sztukę</th>
+        <th>Cena</th>
+    </tr>
+    @foreach (var pr in Model.Cart.Products)
+    {
+        <tr>
+            <td>@Model.Cart.Products.IndexOf(pr)</td>
+            <td>@pr.Product.Name</td>
+            <td>@pr.Amount</td>
+            <td>@pr.Product.Price</td>
+            <td>@pr.OrderCost</td>
+        </tr>
+    }
+    <tr>
+        <td colspan="4">Suma</td>
+        <td>@Model.Cart.TotalCost</td>
+    </tr>
+</table>
+
+<br/>
+<br/>
 
 @using (Html.BeginForm())
 {
@@ -44,7 +70,7 @@
             @Html.ValidationMessageFor(model => model.Order.ClientId)
         </div>
         <p>
-            <input type="submit" value="CheckOut" />
+            <input type="submit" value="Zakończ zamówienie" />
         </p>
     </fieldset>
 }

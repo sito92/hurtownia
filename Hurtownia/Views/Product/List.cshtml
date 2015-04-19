@@ -11,7 +11,7 @@
 
 <fieldset>
     <legend>ProductsViewModel</legend>
-    <table>
+    <table class="customTable">
         <tr>
             <th>
                 <div class="display-label">
@@ -43,7 +43,7 @@
                     @Html.DisplayNameFor(model => model.Products.FirstOrDefault().Unit)
                 </div>
             </th>
-            <th>Actions</th>
+            <th colspan="2">Actions</th>
         </tr>
         @{
             foreach (var product in Model.Products)

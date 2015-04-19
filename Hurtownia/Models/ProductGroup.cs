@@ -9,5 +9,6 @@ namespace Hurtownia.Models
     {
         public Product Product { get; set; }
         public int Amount { get; set; }
+        public double OrderCost { get { return Amount * (double)Product.Price; }}
     }
 }

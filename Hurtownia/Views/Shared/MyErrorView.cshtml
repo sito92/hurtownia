@@ -1,7 +1,9 @@
 ﻿@{
-    ViewBag.Title = "MyErrorView";
+    ViewBag.Title = "Błąd";
 }
 
-<h2>MyErrorView</h2>
+<h2>Wystąpił błąd. Spróbuj ponownie.</h2>
 
 @ViewBag.ErrorMessage
+
+@Html.ActionLink("Powrót","List","Product")

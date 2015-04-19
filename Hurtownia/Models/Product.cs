@@ -28,11 +28,12 @@ namespace Hurtownia.Models
         public DateTime ExpiryDate { get; set; }
 
         [Required]
-        
         [Display(Name = "Cena")]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
+        [Required]
+        [Display(Name = "Ilość")]
         public int Amount { get; set; }
 
 
