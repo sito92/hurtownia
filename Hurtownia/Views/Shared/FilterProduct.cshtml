@@ -57,13 +57,13 @@
             @Html.DropDownListFor(model => model.FilterProduct.UnitId, (SelectList)ViewBag.Units)
             @Html.ValidationMessageFor(model => model.FilterProduct.UnitId)
         </div>
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.FilterProduct.IsFiltering)
-        </div>*@
-        @*<div class="editor-field">
+        <div class="editor-label">
+            @Html.Label("Filtr włączony")
+        </div>
+        <div class="editor-field">
             @Html.EditorFor(model => model.FilterProduct.IsFiltering)
             @Html.ValidationMessageFor(model => model.FilterProduct.IsFiltering)
-        </div>*@
+        </div>
 
         <p>
             <input type="submit" value="Wyszukaj" />

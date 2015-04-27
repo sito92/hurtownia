@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -367,6 +368,9 @@
     <Content Include="Views\Order\List.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Cart\CheckoutError.cshtml" />
+    <Content Include="Views\Client\List.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
