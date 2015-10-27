@@ -37,7 +37,7 @@ namespace Hurtownia.Controllers
                 FilterProduct = model,
 
             };
-            viewModel.Products = _iProductRepository.GetAll();
+            viewModel.Products = _iProductRepository.GetAllProducts();
 
             if (model.Ammount!=null)
             {

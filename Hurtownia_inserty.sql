@@ -1,42 +1,84 @@
-﻿Insert Clients(Name,Surname,NIP,CompanyName,TelephoneNumber,EMail,AddressId,ClientType) VALUES ('Jan','Kowalski','234252345','AugFaug','767123321','Jan.Ko@wp.pl',1,'Ulubiony klient')
+﻿USE [Hurtownia]
+GO
 
-Insert Employees(Name,Surname,Login,Password,TelephoneNumber,EMail) VALUES ('Administrator','Nowak','admin','qwerty123','32434213','admin@sklep.pl')
-
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Dębska Kuźnia','Wiejska',32,2)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Opole','Głowna',2,6)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Luboszyce','Krótka',1,4)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Metalchem','',5,2)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Ozimek','Opolska',6,7)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Opole','Wiejska',1,1)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Opole','Krakowska',9,1)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Krapkowice','Opolska',7,1)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Kamionek','Kamienna',4,8)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Opole','Głucha',4,1)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Opole','Krakowska',1,15)
-Insert Addresses(City,Street,HomeNumber,FlatNumber) Values('Ozimek','Opolska',45,13)
-
-Insert Employees(Name,Surname,Login,Password,TelephoneNumber,EMail) Values('Jan','Kowalski','JanKo','Haslo1111','692321592','Jan.Ko@wp.pl')
-Insert Employees(Name,Surname,Login,Password,TelephoneNumber,EMail) Values('Piotr','Kaśko','PiotrKa','Password2222','695324389','PiotrKa@onet.pl')
-Insert Employees(Name,Surname,Login,Password,TelephoneNumber,EMail) Values('Anna','Nowak','Annka','NieWiem','952322591','AnnkaNo@gazeta.pl')
-Insert Employees(Name,Surname,Login,Password,TelephoneNumber,EMail) Values('Elżbieta','Totutuaj','ElkaTotu','Wchodze','937244392','Elkka.Totu@onet.pl')
-
-Insert ProductTypes(Name) Values('warzywo')
-Insert ProductTypes(Name) Values('owoc')
-Insert ProductTypes(Name) Values('nabiał')
-Insert ProductTypes(Name) Values('napój')
-Insert ProductTypes(Name) Values('mięso')
-
-Insert Units(Name,MinimalAmount) Values('kg',10)
-Insert Units(Name,MinimalAmount) Values('l',10)
-Insert Units(Name,MinimalAmount) Values('Piece',10)
-Insert Units(Name,MinimalAmount) Values('g',100)
-
-Insert PaymentTypes(Type) Values('karta')
-Insert PaymentTypes(Type) Values('przelew')
+INSERT INTO [dbo].[Addresses]
+           ([City]
+           ,[Street]
+           ,[HomeNumber]
+           ,[FlatNumber])
+     VALUES
+         ('Metalchem','',5,2),
+		 ('Ozimek','Opolska',6,7),
+		 ('Opole','Wiejska',1,1),
+		 ('Krapkowice','Opolska',7,1),
+		 ('Kamionek','Kamienna',4,8),
+		 ('Opole','Krakowska',9,1)
+GO
 
 
-Insert Products(Name,UnitId,ProductTypeId,ExpiryDate,Price,Amount) Values('Cytryna',1,2,2015-09-09,1.5,30)
-Insert Products(Name,UnitId,ProductTypeId,ExpiryDate,Price,Amount) Values('Marchewka',1,1,2015-09-09,2.5,12)
-Insert Products(Name,UnitId,ProductTypeId,ExpiryDate,Price,Amount) Values('Mleko2l',3,3,2015-02-04,5.7,31)
-Insert Products(Name,UnitId,ProductTypeId,ExpiryDate,Price,Amount) Values('Pierś z kurczaka',1,5,2015-01-01,24.99,10)
+USE [Hurtownia]
+GO
 
+INSERT INTO [dbo].[Employees]
+           ([Name]
+           ,[Surname]
+           ,[Login]
+           ,[Password]
+           ,[TelephoneNumber]
+           ,[EMail])
+     VALUES
+        --('Administrator','Nowak','admin','qwerty123','32434213','admin@sklep.pl'),
+		('Jan','Kowalski','JanKo','Haslo1111','692321592','Jan.Ko@wp.pl'),
+		('Piotr','Kaśko','PiotrKa','Password2222','695324389','PiotrKa@onet.pl'),
+		('Anna','Nowak','Annka','NieWiem','952322591','AnnkaNo@gazeta.pl'),
+		('Elżbieta','Totutuaj','ElkaTotu','Wchodze','937244392','Elkka.Totu@onet.pl')
+GO
+
+
+
+
+
+USE [Hurtownia]
+GO
+
+INSERT INTO [dbo].[ProductTypes]
+           ([Name])
+     VALUES
+          ('warzywo'),
+		  ('owoc'),
+		  ('nabiał'),
+		  ('napój'),
+		  ('mięso')
+GO
+
+
+USE [Hurtownia]
+GO
+
+INSERT INTO [dbo].[Units]
+           ([Name]
+           ,[MinimalAmount])
+     VALUES
+          ('kg',10),
+		  ('l',10),
+		  ('Piece',10),
+		  ('g',100)
+GO
+
+
+USE [Hurtownia]
+GO
+
+INSERT INTO [dbo].[Products]
+           ([Name]
+           ,[UnitId]
+           ,[ProductTypeID]
+           ,[ExpiryDate]
+           ,[Price]
+           ,[Amount])
+     VALUES
+         ('Cytryna',1,2,2015-09-09,1.5,30),
+		 ('Marchewka',1,1,2015-09-09,2.5,12),
+		 ('Mleko2l',3,3,2015-02-04,5.7,31),
+		 ('Pierś z kurczaka',1,5,2015-01-01,24.99,10)
+GO

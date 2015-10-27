@@ -7,7 +7,8 @@ namespace Hurtownia.Interfaces
 {
     public interface IProductRepository:IRepository<Product>
     {
-        //Pobranie produktu po nazwie
+        IEnumerable<Product> GetAllProducts();
+            //Pobranie produktu po nazwie
         Product GetProductByName(string name);
         Product GetProductById(int id);
         //Pobranie produktu po jednostce

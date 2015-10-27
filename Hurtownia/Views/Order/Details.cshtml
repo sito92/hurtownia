@@ -35,25 +35,27 @@
         <th>Cena za sztukę</th>
         <th>Cena</th>
     </tr>
-    
-        @foreach (var pg in Model.ProductGroups)
-        {
 
-            <tr>
-                <td>@Model.ProductGroups.IndexOf(pg)</td>
-                <td>@pg.Product.Name</td>
-                <td>@pg.Amount</td>
-                <td>@pg.Product.Unit.Name</td>
-                <td>@pg.Product.Price</td>
-                <td>@pg.OrderCost</td>
-            </tr>
-                cost += pg.OrderCost;
-            
+    @foreach (var pg in Model.ProductGroups)
+    {
 
-            
-        }
+        <tr>
+            <td>@Model.ProductGroups.IndexOf(pg)</td>
+            <td>@pg.Product.Name</td>
+            <td>@pg.Amount</td>
+            <td>@pg.Product.Unit.Name</td>
+            <td>@pg.Product.Price</td>
+            <td>@pg.OrderCost</td>
+        </tr>
+        cost += pg.OrderCost;
+
+
+
+    }
     <tr>
         <td colspan="5">Suma</td>
         <td>@cost</td>
     </tr>
-    </table>
+</table>
+
+@Html.ActionLink("PDF", "")

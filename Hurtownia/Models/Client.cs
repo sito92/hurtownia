@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace Hurtownia.Models
 {
@@ -14,20 +15,28 @@ namespace Hurtownia.Models
         [Display(Name = "Nazwisko")]
         public string Surname { get; set; }
 
-        [Display(Name = "NIP")]
-        [StringLength(10, ErrorMessage = "NIP musi się składać z dziesięciu znaków")]
-        public string NIP { get; set; }
+        //[Display(Name = "NIP")]
+        //[StringLength(10, ErrorMessage = "NIP musi się składać z dziesięciu znaków")]
+        //public string NIP { get; set; }
 
-        [Display(Name = "Nazwa firmy")]
-        public string CompanyName { get; set; }
+        //[Display(Name = "Nazwa firmy")]
+        //public string CompanyName { get; set; }
+
+        //[Required]
+        //[Display(Name = "Numer telefonu")]
+        //public string TelephoneNumber { get; set; }
+
+        //[Required]
+        //[Display(Name = "Adres e-mail")]
+        //public string EMail {get; set;}
 
         [Required]
-        [Display(Name = "Numer telefonu")]
-        public string TelephoneNumber { get; set; }
+        [Display(Name = "Dane firmy")]
+        public int CompanyContactInfoId { get; set; }
 
         [Required]
-        [Display(Name = "Adres e-mail")]
-        public string EMail {get; set;}
+        [Display(Name = "Dane kontaktowe")]
+        public int ClientContactInfoId { get; set; }
 
         [Required]
         [Display(Name = "Adres")]
@@ -37,7 +46,8 @@ namespace Hurtownia.Models
         [Display(Name = "Typ klienta")]
         public string ClientType { get; set; }
 
-
+        public virtual CompanyContactInfo CompanyContactInfo { get; set; }
+        public virtual ClientContactInfo ClientContactInfo { get; set; }
         public virtual Address Address { get; set; }
     }
 }

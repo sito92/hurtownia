@@ -1,0 +1,37 @@
+﻿@model Hurtownia.Models.Client
+
+<tr>
+    <td>
+        @Html.DisplayFor(model => model.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Name)
+    </td>
+    <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Surname)
+        </div>
+    </td>
+    <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.AddressId)
+        </div>
+    </td>
+    <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CompanyContactInfoId)
+        </div>
+    </td>
+<td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientContactInfoId)
+    </div>
+</td>
+
+    <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ClientType)
+        </div>
+    </td>
+    <td>@Html.ActionLink("Details", "Details", new { id = Model.Id }, new { style = "text-decoration: none" })</td>
+</tr>

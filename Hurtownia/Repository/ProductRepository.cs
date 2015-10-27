@@ -10,6 +10,14 @@ namespace Hurtownia.Repository
     public class ProductRepository : GenericRepository<Product,WholeSaleDbContext>,IProductRepository
     {
         private const string all = "Wszystkie";
+        private WholeSaleDbContext context;
+
+        public IEnumerable<Product> GetAllProducts()
+        {
+            context = new WholeSaleDbContext();
+            return context.Products.Where(x => x.Name != null);
+        }
+
         public Product GetProductByName(string name)
         {
             return FindBy(p => p.Name == name).FirstOrDefault();

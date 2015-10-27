@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hurtownia.Models;
+using Hurtownia.Models.ViewModels;
+using Hurtownia.Repository;
 
 namespace Hurtownia.Controllers
 {
@@ -21,7 +23,21 @@ namespace Hurtownia.Controllers
 
         public ActionResult List()
         {
-            return View(context.Clients);
+            var clientViewModel = new ClientViewModel();
+            clientViewModel.Clients = context.Clients;
+
+            return View(clientViewModel);
+        }
+
+        public ActionResult Details(int id = 1)
+        {
+            var client = context.Clients.FirstOrDefault(c => c.Id == id);
+
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+            return View(client);
         }
 
         public ActionResult Edit(int id)
@@ -33,6 +49,21 @@ namespace Hurtownia.Controllers
             }
             return View(client);
 
+        }
+
+        public ViewResult Delete(int id)
+        {
+            var client = context.Clients.FirstOrDefault(x => x.Id == id);
+            
+            if (client != null)
+            {
+                context.Clients.Remove(client);
+                context.SaveChanges();
+                return View("List",context.Clients);
+            }
+
+            ModelState.AddModelError(String.Empty, "Spróbuj ponownie");
+            return View("List");
         }
 
         [HttpPost]
@@ -47,13 +78,14 @@ namespace Hurtownia.Controllers
                 {
                     return HttpNotFound();
                 }
+
                 preclient.ClientType = client.ClientType;
-                preclient.CompanyName = client.CompanyName;
-                preclient.EMail = client.EMail;
-                preclient.NIP = client.NIP;
+                preclient.CompanyContactInfoId = client.CompanyContactInfoId;
+                //preclient.EMail = client.EMail;
+                //preclient.NIP = client.NIP;
                 preclient.Name = client.Name;
                 preclient.Surname = client.Surname;
-                preclient.TelephoneNumber = client.Surname;
+                preclient.CompanyContactInfoId = client.CompanyContactInfoId;
                 context.SaveChanges();
             }
             return RedirectToAction("List");
@@ -71,6 +103,23 @@ namespace Hurtownia.Controllers
             client.AddressId = 7;
             context.Clients.Add(client);
             context.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        public ViewResult FakerCreate()
+        {
+            var amount = new FakerAmountViewModel();
+
+            return View(amount);
+        }
+
+        [HttpPost]
+        public ActionResult FakerCreate(FakerAmountViewModel faker)
+        {
+            var clientRepo = new ClientRepository();
+
+            clientRepo.ClientFakerInsert(faker.Amount);
+
             return RedirectToAction("List");
         }
     }

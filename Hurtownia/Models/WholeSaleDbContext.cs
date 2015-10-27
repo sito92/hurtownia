@@ -19,5 +19,7 @@ namespace Hurtownia.Models
         public DbSet<ProductList> ProductLists { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Unit> Units { get; set; }
+        public DbSet<CompanyContactInfo> CompanyContactInfos { get; set; }
+        public DbSet<ClientContactInfo> ClientContactInfos { get; set; } 
     }
 }

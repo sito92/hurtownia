@@ -1,0 +1,57 @@
+﻿@model Hurtownia.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Client</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Surname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Surname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyContactInfoId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyContactInfoId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClientContactInfoId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientContactInfoId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClientType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClientType)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

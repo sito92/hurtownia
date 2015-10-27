@@ -16,6 +16,12 @@ namespace Hurtownia.Controllers
         // GET: /Cart/
         ProductRepository productRepository = new ProductRepository();
         WholeSaleDbContext dbContext = new WholeSaleDbContext();
+
+        public CartController()
+        {
+
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -69,11 +75,13 @@ namespace Hurtownia.Controllers
             viewModel.Order.Employee = dbContext.Employees.ToList().Find(x => x.Id == viewModel.Order.EmployeeId);
             viewModel.Order.PaymentType = dbContext.PaymentTypes.ToList().Find(x => x.Id == viewModel.Order.PaymentTypeId);
 
+
+
             List<ProductList> productLists = new List<ProductList>();
 
             foreach (var prgr in viewModel.Cart.Products)
             {
-                productLists.Add(new ProductList() { Amount = prgr.Amount, Order = viewModel.Order, ProductId = prgr.Product.Id });
+                productLists.Add(new ProductList() { Amount = prgr.Amount, Order = viewModel.Order, ProductId = prgr.Product.Id});
             }
 
             dbContext.ProductLists.AddRange(productLists);

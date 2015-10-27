@@ -95,7 +95,7 @@ namespace Hurtownia.Controllers
            // viewModel.Products = productRepository.GetAll();
 
             viewModel.FilterProduct = viewModel.FilterProduct ?? new FilterProduct();
-            viewModel.Products = productRepository.GetAll();
+            viewModel.Products = productRepository.GetAllProducts();
             if (viewModel.FilterProduct.IsFiltering)
             {
                 viewModel.Products = viewModel.Products
@@ -120,7 +120,7 @@ namespace Hurtownia.Controllers
 
         private void  PopulateProductTypes(object selectedType =  null)
         {
-            var typesList = productRepository.GetAll().Select(x => x.ProductType).OrderBy(x => x.Name).Distinct().ToList();
+            var typesList = productRepository.GetAllProducts().Select(x => x.ProductType).OrderBy(x => x.Name).Distinct().ToList();
             typesList.Insert(0,new ProductType(){Id = 0,Name = "Wszystkie"});
             ViewBag.ProductTypes = new SelectList(typesList, "Id", "Name", selectedType??0);
 
@@ -128,7 +128,7 @@ namespace Hurtownia.Controllers
 
         private void PopulateUnits(object selectedUnit = null)
         {
-            var unitList = productRepository.GetAll().Select(x => x.Unit).OrderBy(x => x.Name).Distinct().ToList();
+            var unitList = productRepository.GetAllProducts().Select(x => x.Unit).OrderBy(x => x.Name).Distinct().ToList();
             unitList.Insert(0, new Unit() {Id = 0,Name = "Wszystkie"});
             ViewBag.Units = new SelectList(unitList, "Id", "Name", selectedUnit ?? 0);
 

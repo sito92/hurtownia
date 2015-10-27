@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Hurtownia.Interfaces;
 using Hurtownia.Repository;
+
 using Ninject;
 
 namespace Hurtownia.Infrastructure
@@ -28,6 +29,7 @@ namespace Hurtownia.Infrastructure
         {
             ninjectKernel.Bind<IUnitRepository>().To<UnitRepository>();
             ninjectKernel.Bind<IProductRepository>().To<ProductRepository>();
+
         }
     }
 }

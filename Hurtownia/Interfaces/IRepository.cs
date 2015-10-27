@@ -8,7 +8,7 @@ namespace Hurtownia.Interfaces
     {
         IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate);
 
-        IEnumerable<T> GetAll();
+        //IEnumerable<T> GetAll();
         void Add(T element);
 
         void Delete(T element);
