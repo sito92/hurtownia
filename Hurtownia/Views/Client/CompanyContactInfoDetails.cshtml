@@ -1,0 +1,25 @@
+﻿@model Hurtownia.Models.CompanyContactInfo
+
+@{
+    ViewBag.Title = "CompanyContactInfoDetails";
+}
+
+<h2>CompanyContactInfoDetails</h2>
+
+<fieldset>
+    <legend>CompanyContactInfo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NIP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NIP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyName)
+    </div>
+</fieldset>

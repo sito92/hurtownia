@@ -23,25 +23,16 @@
         @Html.DisplayFor(model => model.Surname)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CompanyContactInfoId)
-    </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.CompanyContactInfoId)
+        @Html.ActionLink("Dane firmy", "CompanyContactInfoDetails", "Client", new { id = Model.CompanyContactInfoId }, null)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ClientContactInfoId)
-    </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ClientContactInfoId)
+        @Html.ActionLink("Dane kontaktowe", "ClientContactInfoDetails", "Client", new { id = Model.ClientContactInfoId }, null)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddressId)
-    </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.AddressId)
+        @Html.ActionLink("Dane adresowe", "Details","Address",new {id = Model.AddressId},null)
     </div>
 
     <div class="display-label">

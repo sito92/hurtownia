@@ -40,6 +40,30 @@ namespace Hurtownia.Controllers
             return View(client);
         }
 
+        public ActionResult CompanyContactInfoDetails(int id = 1)
+        {
+            var info = context.CompanyContactInfos.FirstOrDefault(x => x.Id == id);
+
+            if (info == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(info);
+        }
+
+        public ActionResult ClientContactInfoDetails(int id = 1)
+        {
+            var info = context.ClientContactInfos.FirstOrDefault(x => x.Id == id);
+
+            if (info == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(info);
+        }
+
         public ActionResult Edit(int id)
         {
             var client = context.Clients.FirstOrDefault(x => x.Id == id);

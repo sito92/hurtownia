@@ -40,16 +40,6 @@ namespace Hurtownia.Repository
                 AddressId = AddressFaker()
             }).ToArray());
 
-            //var a = new Client()
-            //{
-            //    Name = Faker.NameFaker.FirstName(),
-            //    ClientType = Faker.NameFaker.FemaleFirstName(),
-            //    Surname = Faker.NameFaker.LastName(),
-            //    ClientContactInfoId = ClientContactInfoFaker(),
-            //    CompanyContactInfoId = CompanyContactInfoFaker(),
-            //    AddressId = AddressFaker()
-            //};
-
             context.SaveChanges();
         }
 

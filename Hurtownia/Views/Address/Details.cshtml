@@ -1,0 +1,39 @@
+﻿@model Hurtownia.Models.Address
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Address</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Street)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HomeNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HomeNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FlatNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FlatNumber)
+    </div>
+</fieldset>
