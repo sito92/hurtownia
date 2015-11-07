@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Hurtownia.App_Start;
 using Hurtownia.Infrastructure;
 
 namespace Hurtownia
@@ -21,6 +22,7 @@ namespace Hurtownia
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            InitializeMembership.SeedMembership();
         }
     }
 }
