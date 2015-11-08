@@ -30,17 +30,32 @@ namespace Hurtownia.Repository
 
         public void ClientFakerInsert(int amountOfClients)
         {
-            context.Clients.AddOrUpdate(x => x.Name, Enumerable.Range(1, amountOfClients).Select(p => new Client()
-            {
-                Name = Faker.NameFaker.FirstName(),
-                ClientType = Faker.NameFaker.FemaleFirstName(),
-                Surname = Faker.NameFaker.LastName(),
-                ClientContactInfoId = ClientContactInfoFaker(),
-                CompanyContactInfoId = CompanyContactInfoFaker(),
-                AddressId = AddressFaker()
-            }).ToArray());
+            //context.Clients.AddOrUpdate(x => x.Name, Enumerable.Range(1, amountOfClients).Select(p => new Client()
+            //{
+            //    Name = Faker.NameFaker.FirstName(),
+            //    ClientType = Faker.NameFaker.FemaleFirstName(),
+            //    Surname = Faker.NameFaker.LastName(),
+            //    ClientContactInfoId = ClientContactInfoFaker(),
+            //    CompanyContactInfoId = CompanyContactInfoFaker(),
+            //    AddressId = AddressFaker()
+            //}).ToArray());
 
+            //context.SaveChanges();
+
+            for (int i = 0; i < amountOfClients; i++)
+            {
+                context.Clients.AddOrUpdate(new Client()
+                {
+                    Name = Faker.NameFaker.FirstName(),
+                    ClientType = Faker.NameFaker.FemaleFirstName(),
+                    Surname = Faker.NameFaker.LastName(),
+                    ClientContactInfoId = ClientContactInfoFaker(),
+                    CompanyContactInfoId = CompanyContactInfoFaker(),
+                    AddressId = AddressFaker()
+                });
+            }
             context.SaveChanges();
+
         }
 
         private int ClientContactInfoFaker()

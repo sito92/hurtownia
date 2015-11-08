@@ -11,6 +11,11 @@
 <body>
 <header>
     <div class="content-wrapper">
+	<div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>
         <div class="float-left">
             <p class="site-title"><img src="../../Images/logo.png"/></p>
         </div>
@@ -22,6 +27,7 @@
                     <li>@Html.ActionLink("Dodaj produkt", "Add", "Product")</li>
                     <li>@Html.ActionLink("Lista zamówień", "List", "Order")</li>
                     <li>@Html.ActionLink("Klienci", "List", "Client")</li>
+                    <li>@Html.ActionLink("SQL", "FakerCreate", "Client")</li>
                 </ul>
             </nav>
         </div>

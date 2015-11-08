@@ -140,11 +140,17 @@ namespace Hurtownia.Controllers
         [HttpPost]
         public ActionResult FakerCreate(FakerAmountViewModel faker)
         {
-            var clientRepo = new ClientRepository();
+            if (ModelState.IsValid)
+            {
+                var clientRepo = new ClientRepository();
+                clientRepo.ClientFakerInsert(faker.Amount);
 
-            clientRepo.ClientFakerInsert(faker.Amount);
+                return RedirectToAction("List");
+            }
 
-            return RedirectToAction("List");
+            ModelState.AddModelError(null, "Podaj właściwą liczbę rekordów");
+            return View(faker);
+
         }
     }
 }
