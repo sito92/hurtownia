@@ -7,6 +7,7 @@ using Hurtownia.Models;
 
 namespace Hurtownia.Controllers
 {
+    [Authorize]
     public class AddressController : Controller
     {
         private WholeSaleDbContext context;

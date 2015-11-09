@@ -10,6 +10,7 @@ using Hurtownia.Repository;
 
 namespace Hurtownia.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         //

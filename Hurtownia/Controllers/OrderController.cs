@@ -8,6 +8,7 @@ using Hurtownia.Models.ViewModels;
 
 namespace Hurtownia.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         WholeSaleDbContext context = new WholeSaleDbContext();

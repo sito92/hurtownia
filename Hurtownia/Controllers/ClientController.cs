@@ -9,6 +9,7 @@ using Hurtownia.Repository;
 
 namespace Hurtownia.Controllers
 {
+    [Authorize]
     public class ClientController : Controller
     {
         //

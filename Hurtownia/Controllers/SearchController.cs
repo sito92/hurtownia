@@ -11,6 +11,7 @@ using Microsoft.Ajax.Utilities;
 
 namespace Hurtownia.Controllers
 {
+    [Authorize]
     public class SearchController : Controller
     {
         private IProductRepository _iProductRepository;

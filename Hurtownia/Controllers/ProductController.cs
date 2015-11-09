@@ -12,6 +12,7 @@ using Microsoft.Ajax.Utilities;
 
 namespace Hurtownia.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
          private IProductRepository productRepository;
